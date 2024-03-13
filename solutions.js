@@ -69,3 +69,38 @@ function rentalCarCost(d) {
 console.log(rentalCarCost(1)); // 40
 console.log(rentalCarCost(4)); // 140
 console.log(rentalCarCost(7)); // 230
+
+// isIsogram
+
+/*
+An isogram is a word that has no repeating letters, consecutive or non-consecutive. Implement a function that determines whether a string that contains only letters is an isogram. Assume the empty string is an isogram. Ignore letter case.
+
+Example: (Input --> Output)
+
+"Dermatoglyphics" --> true "aba" --> false "moOse" --> false (ignore letter case)
+
+isIsogram "Dermatoglyphics" = true
+isIsogram "moose" = false
+isIsogram "aba" = false
+*/
+
+function isIsogram(str){
+  let charMap = {}; // stores the count of each letter
+  
+  if(str === "") { // if str is empty, it is an isogram and returns true
+    return true;
+  } 
+  
+  for(let i = 0; i < str.length; i++) {
+    let char = str[i].toLowerCase(); // lowercase all letters
+    
+    if(charMap[char]) { // checks to see if the char exists in the map. If it does, not an isogram
+      charMap[char]++;
+      return false;
+    } else {
+      charMap[char] = 1; // assigns 1, to start the count towards finding duplicate
+    }  
+  } return true; // no duplicates were found and string is not empty
+}
+
+console.log(isIsogram("Dermatoglyphics")); // true
