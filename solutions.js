@@ -156,3 +156,17 @@ function enough(cap, on, wait) {
 
 console.log(enough(10, 5, 5)); // 0
 console.log(enough(100, 60, 50)); // 10
+
+
+// Remove elements
+/*
+Take an array and remove every second element from the array. Always keep the first element and start removing with the next element.
+
+Example:
+["Keep", "Remove", "Keep", "Remove", "Keep", ...] --> ["Keep", "Keep", "Keep", ...]
+
+None of the arrays will be empty, so you don't have to worry about that!
+*/
+function removeEveryOther(arr){
+  return arr.filter((e, i) => i % 2 == 0)
+}
