@@ -194,3 +194,38 @@ function flattenAndSort(array) {
 }
 
 console.log(flattenAndSort([[3, 2, 1], [4, 6, 5], [], [9, 7, 8]])); // [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+// Find the stray number
+
+/*
+You are given an odd-length array of integers, in which all of them are the same, except for one single number.
+
+Complete the method which accepts such an array, and returns that single different number.
+
+The input array will always be valid! (odd-length >= 3)
+
+Examples
+[1, 1, 2] ==> 2
+[17, 17, 3, 17, 17, 17, 17] ==> 3
+*/
+
+function stray(numbers) {
+  let frequencyArr = {};
+  
+  for(n of numbers) { //iters the numbers array
+    if(frequencyArr[n]){ // check to see if a duplicate occurs and increments
+      frequencyArr[n]++;
+    } else {
+      frequencyArr[n] = 1; // assigns 1 on the first iteration of the loop
+    }
+  }
+    
+  for(key in frequencyArr) { //iterates the frequency obj
+     if(frequencyArr[key] === 1) { // finds number with one recorded occurrences
+       return Number(key); // returns the string converted to number
+     }
+  }  
+}
+
+console.log(stray([1, 1, 2])); // 2
+console.log(stray([17, 17, 3, 17, 17, 17, 17])); // 3
