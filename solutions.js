@@ -209,6 +209,24 @@ Examples
 [17, 17, 3, 17, 17, 17, 17] ==> 3
 */
 
+// find the unique
+
+/*
+There is an array with some numbers. All numbers are equal except for one. Try to find it!
+
+findUniq([ 1, 1, 1, 2, 1, 1 ]) === 2
+findUniq([ 0, 0, 0.55, 0, 0 ]) === 0.55
+It’s guaranteed that array contains at least 3 numbers.
+
+The tests contain some very huge arrays, so think about performance.
+
+This is the first kata in series:
+
+Find the unique number (this kata)
+Find the unique string
+Find The Unique
+*/
+
 function stray(numbers) {
   let frequencyArr = {};
   
@@ -229,3 +247,25 @@ function stray(numbers) {
 
 console.log(stray([1, 1, 2])); // 2
 console.log(stray([17, 17, 3, 17, 17, 17, 17])); // 3
+
+
+function findUniq(arr) {
+  let numberCount = {};
+  
+  for(let num of arr) {
+    if(numberCount[num]) { // if it exists, increment
+      numberCount[num]++;
+    } else { // assign 1 
+      numberCount[num] = 1;
+    }    
+  }
+  
+  for(key in numberCount) {
+    console.log("key =", key)
+    if(numberCount[key] === 1) {
+      return Number(key)
+    }
+  } 
+}
+
+console.log(findUniq([ 1, 1, 1, 2, 1, 1 ])); // 2
