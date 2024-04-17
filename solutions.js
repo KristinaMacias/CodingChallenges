@@ -269,3 +269,26 @@ function findUniq(arr) {
 }
 
 console.log(findUniq([ 1, 1, 1, 2, 1, 1 ])); // 2
+
+//When provided with a letter, return its position in the alphabet.
+
+//Input :: "a"
+
+//Ouput :: "Position of alphabet: 1"
+
+function position(letter){
+  // Convert the letter to lowercase to handle both cases
+    var lowercaseLetter = letter.toLowerCase();
+    
+    // Get the Unicode value of the letter and subtract the Unicode value of 'a'
+    var position = lowercaseLetter.charCodeAt(0) - 'a'.charCodeAt(0) + 1;
+    
+    // Check if the input is a valid alphabet character
+    if (position >= 1 && position <= 26) {
+        return "Position of alphabet: " + position;
+    } else {
+        return "Invalid input";
+    }
+}
+
+console.log(position("a")); // Position of alphabet: 1
