@@ -400,3 +400,29 @@ function palindrome(str) {
 
 palindrome('hello'); 
 palindrome('abba');
+
+// --- Directions
+// Given an integer, return an integer that is the reverse
+// ordering of numbers.
+// --- Examples
+//   reverseInt(15) === 51
+//   reverseInt(981) === 189
+//   reverseInt(500) === 5
+//   reverseInt(-15) === -51
+//   reverseInt(-90) === -9
+
+function reverseInt(n) {
+  // into to string
+  // string to arr
+  // reverse
+  // back to int
+  // add back the negative
+  // ParsInt the string to make integer and use Math.sign
+  let reversedInt = n.toString().split('').reverse().join('');
+  return parseInt(reversedInt) * Math.sign(n);
+
+}
+
+reverseInt(2231);
+reverseInt(-231313);
+
