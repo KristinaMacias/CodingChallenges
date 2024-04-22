@@ -369,3 +369,8 @@ console.log('active users (names): ', activeUsers);
 // Step 3: Inside sort, create a comparison function where lesser age comes first
 const sortByAge = users.sort((userA, userB) =>  userA.age - userB.age);
 console.log(sortByAge);
+
+
+// By age and only if the user is active. return an array of names
+const activeByAge = users.sort((userA, userB) => userA.age - userB.age).filter((user) => user.isActive).map((user) => user.name);
+console.log(activeByAge); 
