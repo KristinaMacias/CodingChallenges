@@ -330,3 +330,35 @@ console.log(isTriangle(1, 2, 3)); // false
 console.log(isTriangle(-5, 1, 3)); // false
 console.log(isTriangle(0, 2, 3)); // false
 console.log(isTriangle(1, 2, 9)); // false
+
+
+// 1. Write code to get array of names from given array of users
+// 2. Get back only active users
+// 3. Sort users by age descending
+const users = [
+  {
+    id: 1,
+    name: "Jack",
+    isActive: true,
+    age: 20,
+  },
+  {
+    id: 2,
+    name: "John",
+    isActive: true,
+    age: 18,
+  },
+  {
+    id: 3,
+    name: "Mike",
+    isActive: false,
+    age: 30,
+  },
+];
+
+// Active users
+// Step 1: Create a variable
+// Step 2: Use filter to keep users where isActive is true
+// Step 3: Chain a map to put user names in that activeUers array
+const activeUsers = users.filter((user) => user.isActive).map((user) => user.name);
+console.log('active users (names): ', activeUsers);
