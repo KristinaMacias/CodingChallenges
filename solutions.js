@@ -362,3 +362,10 @@ const users = [
 // Step 3: Chain a map to put user names in that activeUers array
 const activeUsers = users.filter((user) => user.isActive).map((user) => user.name);
 console.log('active users (names): ', activeUsers);
+
+// Sort by age
+// Step 1: Create a variable
+// Step 2: Use sort method
+// Step 3: Inside sort, create a comparison function where lesser age comes first
+const sortByAge = users.sort((userA, userB) =>  userA.age - userB.age);
+console.log(sortByAge);
