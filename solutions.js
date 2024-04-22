@@ -374,3 +374,11 @@ console.log(sortByAge);
 // By age and only if the user is active. return an array of names
 const activeByAge = users.sort((userA, userB) => userA.age - userB.age).filter((user) => user.isActive).map((user) => user.name);
 console.log(activeByAge); 
+
+// Reverse a string
+
+function reverse(str) {
+  return str.split("").reverse().join("")
+}
+
+reverse('Hello')
