@@ -426,3 +426,33 @@ function reverseInt(n) {
 reverseInt(2231);
 reverseInt(-231313);
 
+// --- Directions
+// Given a string, return the character that is most
+// commonly used in the string.
+// --- Examples
+// maxChar("abcccccccd") === "c"
+// maxChar("apple 1231111") === "1"
+
+function maxChar(str) {
+  // return the char with most occurrences
+  // key value pairs counter
+  let charCount = {};
+  for(char of str) {
+      if(charCount[char]) {
+          charCount[char]++; //if it already exists, then increment
+      } else {
+          charCount[char] = 1; //assign 1 to start the count
+      }
+  }
+  console.log(charCount);
+  
+  let maxCount = 0; // will change this to the current highest number in the loop
+  let topChar = ""; 
+  for(key in charCount) {
+      if(charCount[key] > maxCount) {
+          maxCount = charCount[key]; //assigns the current highest value to max count
+          topChar = key;
+      }
+  }
+  return topChar;
+}
