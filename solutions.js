@@ -486,3 +486,57 @@ function fizzBuzz(n) {
 }
 
 //fizzBuzz(100);
+
+// --- Directions
+// Given an array and chunk size, divide the array into many subarrays
+// where each subarray is of length size
+// --- Examples
+// chunk([1, 2, 3, 4], 2) --> [[ 1, 2], [3, 4]]
+// chunk([1, 2, 3, 4, 5], 2) --> [[ 1, 2], [3, 4], [5]]
+// chunk([1, 2, 3, 4, 5, 6, 7, 8], 3) --> [[ 1, 2, 3], [4, 5, 6], [7, 8]]
+// chunk([1, 2, 3, 4, 5], 4) --> [[ 1, 2, 3, 4], [5]]
+// chunk([1, 2, 3, 4, 5], 10) --> [[ 1, 2, 3, 4, 5]]
+
+
+
+// About Slice:
+/*
+The slice() method of Array instances returns a shallow copy of a portion of an array into a new array object selected from start to end (end not included) where start and end represent the index of items in that array. The original array will not be modified.
+*/
+
+// Slice Syntax:
+// (slice start, slice end)
+
+// chunking an array (medium article)
+// https://medium.com/@matt.readout/chunking-an-array-in-javascript-831150bb6c7
+
+
+// steps:
+// 1. create empty array to hold chunks called 'chunked'
+// 2. Iterate over each element in the 'unchunked' array
+// 2a. Start loop at index 0, iterate array length, increment by the index + size each time
+// 3. For each iteration, push to the new chunked array
+// 3a. slice the array from the current index to the current index + size
+// 4. Return chunked array
+
+// I always start my slice at the current index
+// I always end my slice at the current index + size beceause it tells me which elements to grab before moving to the next chunk
+
+
+// notes:
+
+function chunkArray(array, size) {
+  let chunkedArray = [];
+
+  for(let i = 0; i < array.length; i += size) {
+      chunkedArray.push(array.slice(i, i + size));
+      // slice(0, 2) --> current index is 0 and adds 2
+      // slice(2, 4) --> current index is 2 and adds 2
+      // slice(4, 6) --> current index is 4 and adds 2
+      console.log("i: ", i);
+  }
+  return chunkedArray;
+}
+
+console.log(chunkArray([1,2,3,4,5], 2)); // [[1, 2], [3, 4], [5]]
+
