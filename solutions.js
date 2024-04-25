@@ -540,3 +540,23 @@ function chunkArray(array, size) {
 
 console.log(chunkArray([1,2,3,4,5], 2)); // [[1, 2], [3, 4], [5]]
 
+// --- Directions
+// Check to see if two provided strings are anagrams of eachother.
+// One string is an anagram of another if it uses the same characters
+// in the same quantity. Only consider characters, not spaces
+// or punctuation.  Consider capital letters to be the same as lower case
+// --- Examples
+//   anagrams('rail safety', 'fairy tales') --> True
+//   anagrams('RAIL! SAFETY!', 'fairy tales') --> True
+//   anagrams('Hi there', 'Bye there') --> False
+
+function anagrams(stringA, stringB) {
+  
+  let cleanStr1 = stringA.replace(/[\s]|[^\w\s]/gi, '').toLowerCase().split('').sort().join('');
+  let cleanStr2 = stringB.replace(/[\s]|[^\w\s]/gi, '').toLowerCase().split('').sort().join('');
+  
+  return cleanStr1 == cleanStr2; // compares to see if they're equal
+}
+
+//console.log(anagrams('aba', 'abaa'));
+
