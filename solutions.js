@@ -576,6 +576,28 @@ function capitalize(str) {
   return wordArr.map((word) => word[0].toUpperCase() + word.substring(1)).join(' ');
 }
 
-module.exports = capitalize;
+//module.exports = capitalize;
 
+
+/*
+Write a function named sumDigits which takes a number as input and returns the sum of the absolute value of each of the number's decimal digits.
+
+For example: (Input --> Output)
+
+10 --> 1
+99 --> 18
+-32 --> 5
+Let's assume that all numbers in the input will be integer values.
+*/
+
+function sumDigits(number) {
+  // logic:
+  // absolute value is distance from 0
+  // always positive numbers
+  // sum
+  return Math.abs(number) // makes positive
+  .toString() // makes a string
+  .split('') // seperates numbers (still string)
+  .reduce((sum, digit) => sum + Number(digit), 0); // iterates and adds converted digits to sum (starting from 0)
+}
 
